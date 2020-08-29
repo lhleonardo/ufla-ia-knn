@@ -27,8 +27,8 @@ def ReadFile(filename):
     return (dataset, categories)
 
 
-def GenerateCustomDataset(percentage=0.2):
-    dataset, categories = ReadFile("../spambase/spambase.data")
+def GenerateCustomDataset(filepath, percentage=0.2):
+    dataset, categories = ReadFile(filepath)
     test_data = []
     training_data = []
     # Constroi a base de dados:
@@ -53,8 +53,9 @@ def __accuracy(matrix, length):
     return (correct_accuracy, fault_accurency)
 
 
-def analyze(k):
-    test_data, training_data, categories = GenerateCustomDataset()
+def analyze(k, filepath):
+    test_data, training_data, categories = GenerateCustomDataset(
+        filepath=filepath)
 
     predicted_data = []
 
